@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+ul,ol{
+    list-style: none;
+}
+img{
+    padding: 0 22px; /* 왼 오 간격주는*/
+    max-width: 19%; /* 이미지 사이즈 */
+}
