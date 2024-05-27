@@ -1,4 +1,52 @@
-:root{
-    /* color */
+/* 전체 nav 바 스타일 */
+.nav {
+    height: 50px; /* nav의 박스 크기 */
+    background-color: rgb(112, 188, 136); /* nav 바의 배경색 */
+    display: flex; /* 요소들 정렬 */
+    align-items: center; /* 박스 안에서 수직 정렬 */
+    width: 100%;
+    padding: 0 20px; /* 좌우 패딩 추가 */
+    box-sizing: border-box;
+}
+
+/* 로고 스타일 */
+.nav-logo img {
+    height: 50px; /* 로고 이미지의 높이 */
+}
+
+/* nav 리스트 스타일 */
+.nav-list {
+    display: flex; /* 요소들 정렬 */
+    margin-left: auto; /* 왼쪽 여백을 자동으로 */
+}
+
+/* 각 nav 아이템 스타일 */
+.nav-item {
+    margin-left: 20px; /* 요소들 간의 간격 */
+}
+
+/* nav 링크 스타일 */
+.nav-link {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: white; /* 링크 글자 색상 */
+    font-weight: bold; /* 링크 글자 굵기 */
+}
+
+/* 햄버거 메뉴 스타일 */
+.nav-toggle {
+    display: none; /* 기본적으로 숨김 */
+    font-size: 24px; /* 아이콘 크기 */
+    color: white; /* 아이콘 색상 */
+    cursor: pointer; /* 커서 변경 */
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        display: none; /* 모바일에서는 기본적으로 숨김 */
+    }
     
+    .nav-toggle {
+        display: block; /* 모바일에서 햄버거 메뉴 표시 */
+        margin-left: auto; /* 오른쪽 끝으로 정렬 */
+    }
 }

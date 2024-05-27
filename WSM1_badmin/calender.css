@@ -1,0 +1,46 @@
+body{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.calender-container{
+    width: 300px;
+    margin: 30px auto;
+    border: 1px solid #ccc;
+    box-shadow: 10px;
+    background-color: #8cb284;
+}
+
+.calender-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.calender-days{
+    display: grid;
+    grid-template-columns: repeat(7,1fr); /* 1행의 7개의 열 */
+    font-weight: bold;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom:5px
+}
+.day{
+    padding: 5px;
+}
+
+.calender-dates{
+    display: grid;
+    grid-template-areas: reepeat(7,1fr);
+}
+.data{
+    cursor: pointer;
+    padding: 5px;
+}
+.data:hover{
+    background-color: #afe7b2;
+}
