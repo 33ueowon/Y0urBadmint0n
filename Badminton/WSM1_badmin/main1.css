@@ -1,0 +1,247 @@
+/* 네비게이션 스타일 */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #dfe4de;
+    padding: 10px 20px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nav-logo img {
+    height: 40px;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-left: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-dropdown {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(223, 228, 222, 0.95);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.nav-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-dropdown li {
+    margin-bottom: 20px;
+}
+
+.nav-dropdown a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.nav-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.nav-close i {
+    font-size: 2rem;
+}
+
+/* 캘린더 스타일 */
+.calendar {
+    background-color: #e0e8d4;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.day {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.day:hover {
+    transform: scale(1.05);
+}
+
+.day i {
+    display: block;
+    margin-top: 5px;
+    color: #4caf50; /* 배드민턴 아이콘의 색상을 변경 */
+}
+
+.day.today {
+    background-color: #ffeb3b; /* 오늘 날짜를 강조하는 색상 */
+    font-weight: bold;
+}
+
+.week-navigation {
+    display: none;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.week-navigation button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.week-navigation button:hover {
+    background-color: #45a049;
+}
+
+/* 날씨 스타일 */
+.weather {
+    background-color: #dfe4de;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-icon i {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+/* 핸드폰 화면에서 적용되는 스타일 */
+@media (max-width: 1024px) {
+    .nav-list {
+        display: none; /* 네비게이션 리스트 숨기기 */
+    }
+
+    .nav-toggle {
+        display: block; /* 햄버거 메뉴 표시 */
+    }
+
+    .nav-dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(1, 1fr); /* 한 주에 한 열씩 표시 */
+    }
+
+    .week-navigation {
+        display: flex; /* 주간 탐색 버튼 표시 */
+    }
+
+    .day {
+        display: none; /* 개별 날짜 숨기기 */
+    }
+
+    .day.visible {
+        display: block; /* 보이는 날짜만 표시 */
+    }
+}
+
+/* 컴퓨터 화면에서 적용되는 스타일 */
+@media (min-width: 1025px) {
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr); /* 전체 한 달 캘린더로 보이도록 설정 */
+    }
+}
+
+/* 반응형 스타일 */
+@media (max-width: 960px) {
+    .nav-list {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr); /* 전체 한 달 캘린더로 보이도록 설정 */
+    }
+
+    .week-navigation {
+        display: flex;
+    }
+}
+
+@media (max-width: 844px) {
+    .nav-list {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    .week-navigation {
+        display: flex;
+    }
+
+    .day {
+        display: none;
+    }
+
+    .day.visible {
+        display: block;
+    }
+}
