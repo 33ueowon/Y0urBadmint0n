@@ -36,8 +36,8 @@
         </nav>
     </header>
     <main>
-        <div class="diary">
-            <!-- 일기 항목 -->
+        <div class="diary" id="diary">
+            <!-- 기존 일기 항목들 -->
             <div class="diary-item">
                 <p>24.05.23</p>
                 <img src="main3(1).png" alt="일기 이미지">
@@ -58,70 +58,26 @@
                 <img src="main3(4).png" alt="일기 이미지">
                 <p>한 줄 일기:<br>처음 한 기술이였지만 재밌게 활용해서 친 것 같다.!!</p>
             </div>
-            <div class="diary-item new-diary" id="add-diary">
-                <i class="bi bi-plus-circle-dotted"></i>
-                <p>새로운 일기 쓰기</p>
+            <!-- 새로운 일기 작성 섹션 -->
+            <div class="new-diary-entry">
+                <p>날짜: <input type="date" id="diary-date"></p>
+                <div class="image-upload">
+                    <input type="file" id="image-upload-input" accept="image/*" style="display:none;">
+                    <label for="image-upload-input">
+                        <i class="bi bi-plus-circle-dotted"></i>
+                        <p>이미지 추가</p>
+                    </label>
+                    <img id="image-preview" src="" alt="이미지 미리보기" style="display:none;">
+                </div>
+                <div class="text-input">
+                    <textarea id="diary-text" placeholder="텍스트 입력"></textarea>
+                </div>
+                <button id="save-diary-button">저장</button>
             </div>
         </div>
-        <div class="view-older" id="view-older">
-            <button>지난 일기 보러가기</button>
-        </div>
+        <button id="scroll-button">지난 일기 보러가기</button>
     </main>
-
-    <!-- 새로운 일기 모달 -->
-    <div class="modal" id="diary-modal" style="display:none;">
-        <div class="modal-content">
-            <span class="close" id="close-modal">&times;</span>
-            <h2>새로운 일기 쓰기</h2>
-            <form id="diary-form">
-                <label for="diary-date">날짜:</label>
-                <input type="date" id="diary-date" name="diary-date" required>
-                <label for="diary-text">일기:</label>
-                <textarea id="diary-text" name="diary-text" rows="4" required></textarea>
-                <button type="submit">저장</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        const navToggle = document.getElementById('nav-toggle');
-        const navDropdown = document.getElementById('nav-dropdown');
-        const navClose = document.getElementById('nav-close');
-
-        navToggle.addEventListener('click', () => {
-            navDropdown.style.display = 'flex';
-        });
-
-        navClose.addEventListener('click', () => {
-            navDropdown.style.display = 'none';
-        });
-
-        const addDiaryButton = document.getElementById('add-diary');
-        const diaryModal = document.getElementById('diary-modal');
-        const closeModal = document.getElementById('close-modal');
-
-        addDiaryButton.addEventListener('click', () => {
-            diaryModal.style.display = 'block';
-        });
-
-        closeModal.addEventListener('click', () => {
-            diaryModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target == diaryModal) {
-                diaryModal.style.display = 'none';
-            }
-        });
-
-        const viewOlderButton = document.getElementById('view-older');
-        viewOlderButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: 'smooth'
-            });
-        });
-    </script>
+    <script src="main3.js"></script>
 </body>
 
 </html>
