@@ -87,7 +87,7 @@
 
     .nav-toggle {
         display: block; /* 햄버거 메뉴 표시 */
-    }
+    }   
 }
 
 /* 메인 섹션 스타일 */
@@ -98,13 +98,16 @@ main {
 .diary {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
 }
 
 .diary-item {
     background-color: #edf0e8;
     padding: 20px;
     border-radius: 10px;
+
 }
 
 .diary-item img {
@@ -172,7 +175,8 @@ main {
     .diary {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        /* align-items: center; */
+        /* justify-content: space-between; */
     }
 
     .diary-item, .new-diary-entry {

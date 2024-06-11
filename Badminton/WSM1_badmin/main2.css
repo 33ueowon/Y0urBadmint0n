@@ -128,6 +128,16 @@ main {
     margin-top: 0;
 }
 
+#scroll-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #dfe4de;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 @media (min-width: 1024px) {
     .content {
         flex-direction: row;
