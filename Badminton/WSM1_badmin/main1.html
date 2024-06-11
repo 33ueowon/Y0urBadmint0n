@@ -95,44 +95,45 @@
         const navToggle = document.getElementById('nav-toggle');
         const navDropdown = document.getElementById('nav-dropdown');
         const navClose = document.getElementById('nav-close');
-
+    
         navToggle.addEventListener('click', () => {
             navDropdown.style.display = 'flex';
             navDropdown.style.width = '100%';
             navDropdown.style.height = '100vh';
         });
-
+    
         navClose.addEventListener('click', () => {
             navDropdown.style.display = 'none';
         });
-
+    
         // 핸드폰 화면에서의 일주일 전환 기능
         let currentWeek = 0;
         const days = document.querySelectorAll('.calendar-grid .day');
         const daysPerWeek = 7;
-
+    
         function showWeek(week) {
             days.forEach((day, index) => {
-                day.style.display = (Math.floor(index / daysPerWeek) === week) ? 'block' : 'none';
+                day.classList.toggle('visible', Math.floor(index / daysPerWeek) === week);
             });
         }
-
+    
         document.getElementById('prev-week').addEventListener('click', () => {
             if (currentWeek > 0) {
                 currentWeek--;
                 showWeek(currentWeek);
             }
         });
-
+    
         document.getElementById('next-week').addEventListener('click', () => {
             if (currentWeek < Math.floor(days.length / daysPerWeek)) {
                 currentWeek++;
                 showWeek(currentWeek);
             }
         });
-
+    
         showWeek(currentWeek);
     </script>
+    
 </body>
 </html>
 
