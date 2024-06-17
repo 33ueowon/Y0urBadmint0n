@@ -9,11 +9,11 @@
     width: 100%;
     box-sizing: border-box;
 }
-
+ 
 .nav-logo img {
     height: 40px;
 }
-
+ 
 .nav-list {
     display: flex;
     list-style: none;
@@ -151,6 +151,24 @@ main {
     padding: 10px;
     box-sizing: border-box;
 }
+
+.edit-diary-button, .delete-diary-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #dfe4de;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.edit-diary-button {
+    background-color: #8ab6d6;
+}
+
+.delete-diary-button {
+    background-color: #e57373;
+}
+
 
 #scroll-button {
     display: block;

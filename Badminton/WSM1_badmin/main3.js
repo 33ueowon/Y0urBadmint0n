@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const diaryDate = document.getElementById('diary-date');
     const diaryText = document.getElementById('diary-text');
 
-    // 네비게이션 토글
     navToggle.addEventListener('click', () => {
         navDropdown.style.display = 'flex';
     });
@@ -19,12 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
         navDropdown.style.display = 'none';
     });
 
-    // 지난 일기 보러가기 버튼
     scrollButton.addEventListener('click', () => {
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     });
 
-    // 이미지 업로드 미리보기
     imageUploadInput.addEventListener('change', (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -37,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 일기 저장
     saveDiaryButton.addEventListener('click', () => {
         const date = diaryDate.value;
         const text = diaryText.value;
@@ -54,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 일기 저장 및 로드
     function saveDiaryEntry(entry) {
         let diaryEntries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
         diaryEntries.push(entry);
@@ -73,8 +68,51 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>${entry.date}</p>
             <img src="${entry.imageSrc}" alt="일기 이미지">
             <p>한 줄 일기:<br>${entry.text}</p>
+            <button class="edit-diary-button">수정</button>
+            <button class="delete-diary-button">삭제</button>
         `;
         diaryContainer.insertBefore(diaryItem, diaryContainer.firstChild);
+        addDiaryItemEventListeners(diaryItem);
+    }
+
+    function addDiaryItemEventListeners(diaryItem) {
+        const editButton = diaryItem.querySelector('.edit-diary-button');
+        const deleteButton = diaryItem.querySelector('.delete-diary-button');
+
+        editButton.addEventListener('click', () => {
+            const date = prompt('새로운 날짜를 입력하세요 (yyyy-mm-dd):', diaryItem.querySelector('p').textContent);
+            const text = prompt('새로운 일기 내용을 입력하세요:', diaryItem.querySelector('p:nth-of-type(2)').textContent.split(':')[1].trim());
+            const imageSrc = diaryItem.querySelector('img').src;
+
+            if (date && text) {
+                const updatedDiaryEntry = { date, text, imageSrc };
+                updateDiaryEntry(diaryItem, updatedDiaryEntry);
+            }
+        });
+
+        deleteButton.addEventListener('click', () => {
+            if (confirm('정말로 이 일기를 삭제하시겠습니까?')) {
+                deleteDiaryEntry(diaryItem);
+            }
+        });
+    }
+
+    function updateDiaryEntry(diaryItem, updatedEntry) {
+        let diaryEntries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
+        const index = Array.from(diaryContainer.children).indexOf(diaryItem);
+        diaryEntries[index] = updatedEntry;
+        localStorage.setItem('diaryEntries', JSON.stringify(diaryEntries));
+        diaryItem.querySelector('p').textContent = updatedEntry.date;
+        diaryItem.querySelector('img').src = updatedEntry.imageSrc;
+        diaryItem.querySelector('p:nth-of-type(2)').innerHTML = `한 줄 일기:<br>${updatedEntry.text}`;
+    }
+
+    function deleteDiaryEntry(diaryItem) {
+        let diaryEntries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
+        const index = Array.from(diaryContainer.children).indexOf(diaryItem);
+        diaryEntries.splice(index, 1);
+        localStorage.setItem('diaryEntries', JSON.stringify(diaryEntries));
+        diaryItem.remove();
     }
 
     function resetForm() {
@@ -84,6 +122,5 @@ document.addEventListener('DOMContentLoaded', () => {
         imagePreview.style.display = 'none';
     }
 
-    // 로드 시 일기 항목 불러오기
     loadDiaryEntries();
 });
