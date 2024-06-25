@@ -102,6 +102,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .day:hover {
@@ -190,7 +191,6 @@
         grid-template-columns: repeat(7, 1fr); /* 전체 한 달 캘린더로 보이도록 설정 */
     }
 }
-
 
 /* 반응형 스타일 */
 @media (max-width: 960px) {
