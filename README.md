@@ -11,9 +11,8 @@
 * JS
 
 ## 데모영상
-* desktop
-* tablet
-* phone 
+<a href="https://drive.google.com/drive/folders/1ZPLMHMcjO3vBvODocOIA_9zIf_M70g6A"> 데모 영상입니데이.</a>
+
     
 
 
