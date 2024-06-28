@@ -6,7 +6,7 @@
     <title>y0urBadmint0n</title>
     <link rel="stylesheet" href="main1.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="icon" type="images/png" href="images/wsm1.png">
+    <link rel="icon" type="images/png" href="images/wsm1.png"> <!--아이콘 설정-->
 </head> 
 <body>
     <header>
@@ -77,8 +77,8 @@
                 <div class="day" data-date="2024-05-31">31</div>
             </div>
             <div class="week-navigation">
-                <button id="prev-week">이전</button>
-                <button id="next-week">다음</button>
+                <button id="prev-week">이전</button>    <!--이전 주-->
+                <button id="next-week">다음</button>    <!--다음 주-->
             </div>
         </section>
         
@@ -92,17 +92,17 @@
     </main>
 
     <script>
-        const navToggle = document.getElementById('nav-toggle');
-        const navDropdown = document.getElementById('nav-dropdown');
-        const navClose = document.getElementById('nav-close');
+        const navToggle = document.getElementById('nav-toggle');    // 햄버거 메뉴 요소 선택
+        const navDropdown = document.getElementById('nav-dropdown');    // 드롭다운 메뉴 요소 선택
+        const navClose = document.getElementById('nav-close');      // 닫기 버튼 선택
     
-        navToggle.addEventListener('click', () => {
+        navToggle.addEventListener('click', () => { //햄버거 메뉴 클릭시
             navDropdown.style.display = 'flex';
             navDropdown.style.width = '100%';
             navDropdown.style.height = '100vh';
         });
     
-        navClose.addEventListener('click', () => {
+        navClose.addEventListener('click', () => {  //닫기 버튼 클릭시
             navDropdown.style.display = 'none';
         });
     
@@ -111,20 +111,20 @@
         const days = document.querySelectorAll('.calendar-grid .day');
         const daysPerWeek = 7;
     
-        function showWeek(week) {
+        function showWeek(week) {   // 주 표시 함수
             days.forEach((day, index) => {
                 day.classList.toggle('visible', Math.floor(index / daysPerWeek) === week);
             });
         }
     
-        document.getElementById('prev-week').addEventListener('click', () => {
+        document.getElementById('prev-week').addEventListener('click', () => {  // 이전 주 버튼 클릭시
             if (currentWeek > 0) {
                 currentWeek--;
                 showWeek(currentWeek);
             }
         });
     
-        document.getElementById('next-week').addEventListener('click', () => {
+        document.getElementById('next-week').addEventListener('click', () => {  //다음 주 버튼 클릭 시 ㄴ
             if (currentWeek < Math.floor(days.length / daysPerWeek)) {
                 currentWeek++;
                 showWeek(currentWeek);
